@@ -16,7 +16,20 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
-      render :new, status: unprocessable_entity
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit 
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
