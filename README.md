@@ -10,3 +10,18 @@
 ### Schema conventions
 - **Foreign keys** - singularized_table_name_id (ex: article_id, comment_id)
 - **Primary keys** - integer column named id as table's primary key (bigint for PostgreSQL and MySQL, integer for SQLite)
+
+### Overriding naming conventions
+```ruby
+class product < ApplicationRecord
+  self.table_name = "my_products"
+end
+```
+need manually define the class name that is hosting the fixtures (my_products.yml) using the set_fixture_class method in test
+
+```ruby
+class ProductTest < ActiveSupport::TestCase
+  set_fixture_class my_products: Product
+  fixtures :my_products
+  # ...
+end
