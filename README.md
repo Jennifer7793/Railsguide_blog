@@ -30,3 +30,12 @@ end
 #### Create
 **new** method return a new object while **create** return the object and save it to the database.
 If a block is provided, both new and create will yield the new object to that block for initialization.
+
+#### Read
+below are few examples of different data access methods provided by Active Record.
+```ruby
+users = User.all
+user = User.first
+jen = User.find_by(name: 'Jen')
+users = User.where(name: 'Jen', occupation: 'RoR developer').order(created_at: :desc)
+```
