@@ -25,3 +25,8 @@ class ProductTest < ActiveSupport::TestCase
   fixtures :my_products
   # ...
 end
+```
+
+#### Create
+**new** method return a new object while **create** return the object and save it to the database.
+If a block is provided, both new and create will yield the new object to that block for initialization.
