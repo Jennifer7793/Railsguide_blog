@@ -39,3 +39,19 @@ user = User.first
 jen = User.find_by(name: 'Jen')
 users = User.where(name: 'Jen', occupation: 'RoR developer').order(created_at: :desc)
 ```
+
+#### Update
+```ruby
+user = User.find_by(name: 'Jen')
+user.name = 'Jennifer'
+user.save
+# equals to below
+user = User.find_by(name: 'Jen')
+user.update(name: 'Jennifer')
+```
+To update several attributes use **update_all**
+```ruby
+User.update_all "max_login_attempts = 3, must_change_password = 'true'"
+# same as below
+User.update(:all, max_login_attempts: 3, must_change_password: true)
+```
