@@ -55,3 +55,17 @@ User.update_all "max_login_attempts = 3, must_change_password = 'true'"
 # same as below
 User.update(:all, max_login_attempts: 3, must_change_password: true)
 ```
+
+#### Delete
+```ruby
+user = User.find_by(name: 'Jen')
+user.destroy
+```
+To delete several records in bulk, use **destroy_by** or **destroy_all**
+```ruby
+# delete all users named Jen
+User.destroy_by(name: 'Jen')
+
+# delete all users
+User.destroy_all
+```
