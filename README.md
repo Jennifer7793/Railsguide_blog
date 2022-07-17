@@ -69,3 +69,16 @@ User.destroy_by(name: 'Jen')
 # delete all users
 User.destroy_all
 ```
+
+#### Validations
+**save!** and **update!** are stricter that they raise the exception _ActiveRecord::RecordInvalid_ if validation fails.
+```ruby
+class User < ApplicationRecord
+  validates :name, presence: true
+end
+
+irb> user = User.new
+irb> user.save
+=> false
+irb> user.save!
+ActiveRecord::RecordInvalid: Validation failed: Name cannot be blank
