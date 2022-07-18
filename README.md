@@ -82,3 +82,6 @@ irb> user.save
 => false
 irb> user.save!
 ActiveRecord::RecordInvalid: Validation failed: Name cannot be blank
+```
+#### Migration
+use **bin/rails db:migrate** to create the table and **bin/rails db:rollback** to roll it back.
