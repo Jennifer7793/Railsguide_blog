@@ -95,3 +95,17 @@ migration, using DSL (Domain Specific Language) and allowing schema and changes 
 use **reversible** when we wish for a migration to do sth that Active Record doesn't know how to reverse.
 
 Alternatively, can use **up** and **down** instead of **change**
+
+#### Creating a migration
+The name of the file is YYYYMMDDHHMMSS_create_products.rb and should define class CreateProducts. 
+
+If the migration name if "AddColumnToTable" or "RemoveColumnFromTable" and is followed by a list of column names and types then migration will contain the appropriate **add_column** and **remove_column**. Example as below
+```ruby
+$bin/rails generate migration AddPartNumberToProducts part_number:string
+# will generate 
+class AddPartNumberToProducts < ActiveRecord::Migration[7.0]
+  def change
+    add_column :products, :part_number, :string
+  end
+end
+```
