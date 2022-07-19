@@ -1,4 +1,5 @@
-# Railsguides Active Record
+# Railsguides 
+## Active Record Basics
 ---
 **Active Record** = "M"VC = **model** which represent business data and logic. 
 **ORM** = Object Relational Mapping which is a technique that connects the rich objects of an application to tables in a relational database management system. 
@@ -85,3 +86,12 @@ ActiveRecord::RecordInvalid: Validation failed: Name cannot be blank
 ```
 #### Migration
 use **bin/rails db:migrate** to create the table and **bin/rails db:rollback** to roll it back.
+
+## Active Record Migration
+---
+#### Migration Overview
+migration, using DSL (Domain Specific Language) and allowing schema and changes to be database independent = new version of the database. 
+
+use **reversible** when we wish for a migration to do sth that Active Record doesn't know how to reverse.
+
+Alternatively, can use **up** and **down** instead of **change**
