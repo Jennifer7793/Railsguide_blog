@@ -133,3 +133,13 @@ class CReateProducts < ActiveRecord::Migration[7.0]
   end
 end
 ```
+generator accepts column type as **references** and **belongs_to**. **references** will create a user_id column, are a shorthand for creating columns, indexes, foreign keys or even polymorphic association columns.
+```ruby
+$bin/rails generate migration AddUserRefToProducts user:references
+# will generate
+class AddUserRefToProducts < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :products, :user, foreign_key: true
+  end
+end
+```
