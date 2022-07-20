@@ -118,3 +118,18 @@ class AddDetailsToProducts < ActiveRecord::Migration[7.0]
   end
 end
 ```
+If migration name is "CreateXXX" and is followed by a list of column names and types then will create a table XXX with the columns listed. 
+```ruby
+$bin/rails generate migration CreateProducts name:string part_number:string
+# will generate
+class CReateProducts < ActiveRecord::Migration[7.0]
+  def change
+    create_table :products do |t|
+      t.string :name
+      t.string :part_number
+
+      t.timestamps
+    end
+  end
+end
+```
