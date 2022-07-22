@@ -155,3 +155,20 @@ class CreateJoinTableCustomerProduct < ActiveRecord::Migration[7.0]
     end
   end
 end
+```
+#### Generate model
+can append as many column name/type pairs as we want
+```ruby
+$bin/rails generate model Product name:string description:text
+# will generate
+class CreateProducts < ActiveRecord::Migration[7.0]
+  def change
+    create_table :products do |t|
+      t.string :name
+      t.text :description
+
+      t.timestamps
+    end
+  end
+end
+```
