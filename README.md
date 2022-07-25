@@ -172,3 +172,14 @@ class CreateProducts < ActiveRecord::Migration[7.0]
   end
 end
 ```
+add index on the new column
+```ruby
+$bin/rails generate migration AddPartNumberToProducts part_number:string:index
+# will generate
+class AddPartNumberToProducts < ActiveRecord::Migration[7.0]
+  def change
+    add_column :products, :part_number, :string
+    add_index :products, :part_number
+  end
+end
+```
