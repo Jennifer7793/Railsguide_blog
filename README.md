@@ -194,3 +194,13 @@ class AddDetailsToProducts < ActiveRecord::Migration[7.0]
   end
 end
 ```
+migration accepts column type as references
+```ruby
+$bin/rails generate migration AddUserRefToProducts user:references
+# will generate
+class AddUserRefToProducts < ActiveRecord::Migration[7.0]
+  def change 
+    add_reference :products, :user, foreign_key: true
+  end
+end
+```
