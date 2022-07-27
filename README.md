@@ -156,6 +156,10 @@ class CreateJoinTableCustomerProduct < ActiveRecord::Migration[7.0]
   end
 end
 ```
+Columns option :null set to false by default. Can be overridden by specifying the :column_options 
+```ruby
+create_join_table :products, :categories, column_options: { null: true }
+```
 #### Generate model
 can append as many column name/type pairs as we want
 ```ruby
