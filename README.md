@@ -160,6 +160,10 @@ Columns option :null set to false by default. Can be overridden by specifying th
 ```ruby
 create_join_table :products, :categories, column_options: { null: true }
 ```
+Default name of join table comes from the union of the first two arguments in alphabetical order. To customize the name of the table, using :table_name option
+```ruby
+create_join_table :products, :categories, table_name: :categorization
+```
 #### Generate model
 can append as many column name/type pairs as we want
 ```ruby
