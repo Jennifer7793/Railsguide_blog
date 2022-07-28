@@ -202,3 +202,12 @@ class AddDetailsToProducts < ActiveRecord::Migration[7.0]
   end
 end
 ```
+changing tables: below did remove the description and name columns, create a part_number string column and add an index on it. rename the upccode.
+```ruby
+change_table :products do |t|
+  t.remove :description, :name
+  t.string :part_number
+  t.index :part_number
+  t.rename :upccode, :upc_code
+end
+```
