@@ -211,3 +211,7 @@ change_table :products do |t|
   t.rename :upccode, :upc_code
 end
 ```
+change column iis irreversible, below change part_number to text
+```ruby
+change_column :products, :part_number, :text
+```
