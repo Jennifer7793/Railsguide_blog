@@ -211,7 +211,13 @@ change_table :products do |t|
   t.rename :upccode, :upc_code
 end
 ```
-change column iis irreversible, below change part_number to text
+change column is irreversible, below change part_number to text
 ```ruby
 change_column :products, :part_number, :text
+```
+#### References
+add_reference method allows the creation of an appropriately named column.
+```ruby
+add_reference :users, :role
+# will create a role_id column in the users table. It creates an index for this column as well, unless with **index: false**.
 ```
