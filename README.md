@@ -225,3 +225,7 @@ A foreign key can be created with **foreign_key** option
 ```ruby
 add_reference :users, :role, foreign_key: true
 ```
+To remove references
+```ruby
+remove_reference :products, :user, foreign_key: true, index: false
+```
