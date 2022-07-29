@@ -221,3 +221,7 @@ add_reference method allows the creation of an appropriately named column.
 add_reference :users, :role
 # will create a role_id column in the users table. It creates an index for this column as well, unless with **index: false**.
 ```
+A foreign key can be created with **foreign_key** option
+```ruby
+add_reference :users, :role, foreign_key: true
+```
